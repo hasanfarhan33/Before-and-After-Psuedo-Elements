@@ -1,0 +1,136 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  flex-direction: column;
+  background-color: rgb(235, 228, 228);
+  overflow: hidden;
+}
+
+/* p::before { */
+/* content: ""; */
+/* content: "Hello, "; */
+/* background: red; */
+/* display: block; */
+/* width: 10px; */
+/* height: 10px; */
+/* font-style: italic; */
+/* } */
+
+/* p::after {
+  content: "";
+  background: red;
+  display: block;
+  width: 10px;
+  height: 10px;
+} */
+
+/* p::after {
+  content: " Bye.";
+  background: red;
+  width: 10px;
+  height: 10px;
+  font-style: italic;
+} */
+
+/* Before and After psuedo elements WILL NOT work on images */
+/* img ::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: purple;
+} */
+
+/* Understanding CONTENT */
+
+/* You can add images */
+/* p::before {
+  content: url(//unsplash.it/150/150);
+  border-radius: 10px;
+} */
+
+blockquote::before {
+  content: open-quote;
+}
+
+blockquote::after {
+  content: close-quote;
+}
+
+/* p::before {
+  content: open-quote;
+}
+
+p::after {
+  content: close-quote;
+} */
+
+a[data-tool-tip] {
+  position: relative;
+  font-style: italic;
+}
+
+a[data-tool-tip]::before {
+}
+
+a[data-tool-tip]::after {
+  content: attr(data-tool-tip);
+  display: block;
+  position: absolute;
+  background-color: gray;
+  font-style: normal;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1em;
+  font-size: 0.3em;
+  bottom: 0;
+  left: 0;
+  white-space: nowrap;
+  transform: scale(0);
+  /* transition: 0.1s; */
+  transition: transform ease-out 150ms, bottom ease-out 150ms;
+}
+
+a[data-tool-tip]:hover::after {
+  transform: scale(1);
+  bottom: 100%;
+}
+
+/* .decorated::before {
+  content: url(//unsplash.it/800/10);
+  display: block;
+} */
+
+.makeItCount {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  counter-reset: counter-name;
+}
+
+p {
+  position: relative;
+}
+
+p::before {
+  counter-increment: counter-name;
+  content: counter(counter-name);
+  position: absolute;
+  color: white;
+  background-color: black;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  left: -3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
